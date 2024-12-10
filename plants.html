@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Project</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container mx-auto">
+            <div class="flex justify-around mt-4 text-xs">
+                <div v-for="plant of plants"><button v-if="!plant.win" @click="water(plant.id)"
+                        class="rounded-full px-3 py-1" :class="plant.ableToWater?bg-green-600:bg-red-600">
+                        Water
+                    </button>
+                    <h3 v-else class="text-center text-xl">Win</h3>
+                </div>
+            </div>
+            <div class="">Grown</div>
+
+            <div class="">
+                <hr />
+            </div>
+            <div class="flex justify-around items-end h-80">
+                <div v-for="plant in plants" class="bg-lime-400 w-12 border-4 border-double border-sky-500"
+                    :class=`h-${plant.height}`></div>
+            </div>
+
+            <div class="">
+                <hr />
+            </div>
+            <div class="flex justify-between">Earth</div>
+        </div>
+    </div>
+    <script src="./plants.js"></script>
+</body>
+
+</html>
